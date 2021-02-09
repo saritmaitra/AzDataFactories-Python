@@ -5,11 +5,11 @@
 # Replace <storageaccountname> and <storageaccountkey> with name and key of our Azure Storage account.
 
 # Create an Azure Storage linked service
-    ls_name = 'storageLinkedService001'
+ls_name = 'storageLinkedService001'
 
-    # IMPORTANT: specify the name and key of your Azure Storage account.
-    storage_string = SecureString(value='DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>;EndpointSuffix=<suffix>')
+# IMPORTANT: specify the name and key of your Azure Storage account.
+storage_string = SecureString(value='DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>;EndpointSuffix=<suffix>')
 
-    ls_azure_storage = LinkedServiceResource(properties=AzureStorageLinkedService(connection_string=storage_string)) 
-    ls = adf_client.linked_services.create_or_update(rg_name, df_name, ls_name, ls_azure_storage)
-    print_item(ls)
+ls_azure_storage = LinkedServiceResource(properties=AzureStorageLinkedService(connection_string=storage_string)) 
+ls = adf_client.linked_services.create_or_update(rg_name, df_name, ls_name, ls_azure_storage)
+print_item(ls)
